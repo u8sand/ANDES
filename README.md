@@ -25,11 +25,30 @@ conda activate ANDES
 ANDES can be run through the command line as follows:
 
 ```sh
-python src/andes.py --emb embedding_file.csv --genelist embedding_gene_ids.txt --geneset1 first_gene_set_database.gmt --geneset2 second_gene_set_database.gmt --out output_file.csv -n num_processor
+python -m andes --emb embedding_file.csv --genelist embedding_gene_ids.txt --geneset1 first_gene_set_database.gmt --geneset2 second_gene_set_database.gmt --out output_file.csv -n num_processor
 ```
 
 ANDES performing GSEA can be run through the command line as follows:
 
 ```sh
-python src/andes_gsea.py --emb embedding_file.csv --genelist embedding_gene_ids.txt --geneset gene_set_database.gmt --rankedlist ranked_genes.txt --out output_file.csv -n num_processor
+python -m andes.gsea --emb embedding_file.csv --genelist embedding_gene_ids.txt --geneset gene_set_database.gmt --rankedlist ranked_genes.txt --out output_file.csv -n num_processor
+```
+
+### With Pip
+This project can also be installed with pip.
+
+```sh
+pip install "git+https://github.com/u8sand/ANDES.git"
+```
+
+ANDES can be run through the command line as follows:
+
+```sh
+andes --emb embedding_file.csv --genelist embedding_gene_ids.txt --geneset1 first_gene_set_database.gmt --geneset2 second_gene_set_database.gmt --out output_file.csv -n num_processor
+```
+
+ANDES performing GSEA can be run through the command line as follows:
+
+```sh
+andes-gsea --emb embedding_file.csv --genelist embedding_gene_ids.txt --geneset gene_set_database.gmt --rankedlist ranked_genes.txt --out output_file.csv -n num_processor
 ```

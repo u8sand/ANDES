@@ -7,12 +7,12 @@ from functools import partial
 from collections import defaultdict
 from sklearn import metrics
 from multiprocessing import Pool
-import load_data as ld
-import set_analysis_func as func
+import andes.load_data as ld
+import andes.set_analysis_func as func
 
 
 
-if __name__=='__main__':
+def main():
     parser = argparse.ArgumentParser(
         description='calculate gene sets similarity in a embedding space')
     parser.add_argument('--emb', dest='emb_f', type=str,
@@ -114,7 +114,5 @@ if __name__=='__main__':
     zscores = pd.DataFrame(zscores, index=geneset1_terms, columns=geneset2_terms)
     zscores.to_csv(args.out_f, sep=',')
     
-
-
-
-
+if __name__=='__main__':
+    main()

@@ -6,12 +6,12 @@ from functools import partial
 from collections import defaultdict
 from sklearn import metrics
 from multiprocessing import Pool
-import load_data as ld
-import set_analysis_func as func
-import expression_analysis_func as expression_analysis_func
+import andes.load_data as ld
+import andes.set_analysis_func as func
+import andes.expression_analysis_func as expression_analysis_func
 
 
-if __name__=='__main__':
+def main():
     parser = argparse.ArgumentParser(
         description='calculate gene sets similarity in a embedding space')
     parser.add_argument('--emb', dest='emb_f', type=str,
@@ -129,3 +129,5 @@ if __name__=='__main__':
     empirical_pvalue = pd.DataFrame(empirical_pvalue, index=geneset_terms, columns=['empirical pvalue'])
     empirical_pvalue.to_csv(args.out_f+'_p_value.csv', sep=',')
         
+if __name__=='__main__':
+    main()
